@@ -1,9 +1,11 @@
 export interface PaginatorStore {
   params: {
-    count: number;
     category: Category[];
+    activeCategoryId: number;
   };
   nextAction: () => void;
+  prevAction: () => void;
+  changeActiveCategory: (id: number) => void;
 }
 
 export interface Category {

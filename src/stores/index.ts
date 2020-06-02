@@ -4,12 +4,30 @@ import { category } from "../consts/category";
 
 class PaginationStore {
   @observable public params = {
-    count: 0,
     category,
+    activeCategoryId: 1,
   };
 
   @action nextAction = () => {
-    this.params.count++;
+    if (this.params.activeCategoryId >= this.params.category.length) {
+      this.params.activeCategoryId = 1;
+      return;
+    }
+
+    this.params.activeCategoryId++;
+  };
+
+  @action prevAction = () => {
+    if (this.params.activeCategoryId <= 1) {
+      this.params.activeCategoryId = this.params.category.length;
+      return;
+    }
+
+    this.params.activeCategoryId--;
+  };
+
+  @action changeActiveCategory = (id: number) => {
+    this.params.activeCategoryId = id;
   };
 }
 

@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  width: 50%;
+  margin: 20px auto;
+  justify-content: space-between;
+}
+
+.wrapper_categories {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.category_item {
+  padding: 6px 12px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.active {
+  color: red;
+}
