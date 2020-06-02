@@ -1,10 +1,11 @@
+import { createContext } from "react";
 import { action, observable } from "mobx";
 import { category } from "../consts/category";
 
-class indexStore {
+class PaginationStore {
   @observable public params = {
     count: 0,
-    category: category,
+    category,
   };
 
   @action nextAction = () => {
@@ -12,4 +13,4 @@ class indexStore {
   };
 }
 
-export default new indexStore();
+export default createContext(new PaginationStore());

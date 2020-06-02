@@ -1,4 +1,6 @@
-export const category = [
+import { Category } from "../interfaces/store";
+
+export const category: Category[] = [
   {
     id: 1,
     name: "First",

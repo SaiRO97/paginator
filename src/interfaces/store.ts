@@ -1,11 +1,9 @@
-export interface stores {
-  PaginatorStore: {
-    params: {
-      count: number;
-      category: Category[];
-    };
-    nextAction: () => void;
+export interface PaginatorStore {
+  params: {
+    count: number;
+    category: Category[];
   };
+  nextAction: () => void;
 }
 
 export interface Category {

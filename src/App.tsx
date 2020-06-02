@@ -1,21 +1,15 @@
-import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
-import { stores } from "./interfaces/store";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
+import PaginationStore from "./stores/index";
+import { PaginatorStore } from "./interfaces/store";
+
 import "./App.css";
+import Paginator from "./views/paginator";
 
-@inject("stores")
-@observer
-export default class App extends Component<stores> {
-  constructor(props: stores) {
-    super(props);
-  }
+const App: React.FC = () => {
+  const paginatorStore: PaginatorStore = useContext(PaginationStore);
 
-  render() {
-    return (
-      <>
-        <span>{this.props.PaginatorStore.params.count}</span>
-        <div onClick={() => this.props.PaginatorStore.nextAction()}>click</div>
-      </>
-    );
-  }
-}
+  return <Paginator categories={paginatorStore.params.category} />;
+};
+
+export default observer(App);
