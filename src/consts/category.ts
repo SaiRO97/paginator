@@ -15,42 +15,42 @@ export const category: Category[] = [
   },
   {
     id: 4,
-    name: "third",
+    name: "bla",
   },
   {
     id: 5,
-    name: "third",
+    name: "lorem",
   },
   {
     id: 6,
-    name: "third",
+    name: "sdf",
   },
   {
     id: 7,
-    name: "third",
+    name: "thigfdgfdrd",
   },
   {
     id: 8,
-    name: "third",
+    name: "sdfdsf",
   },
   {
     id: 9,
-    name: "third",
+    name: "xcvxc",
   },
   {
     id: 10,
-    name: "third",
+    name: "unique",
   },
   {
     id: 11,
-    name: "third",
+    name: "category",
   },
   {
     id: 12,
-    name: "third",
+    name: "sport",
   },
   {
     id: 13,
-    name: "third",
+    name: "music",
   },
 ];

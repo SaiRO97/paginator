@@ -5,22 +5,20 @@ import "./paginator.css";
 export interface PaginatorProps {
   categories: Category[];
   activeCategoryId: number;
-  categoryClickAction: (id: number) => void;
   setPage: (id: number) => void;
 }
 
 const Paginator: React.FC<PaginatorProps> = ({
   categories,
   activeCategoryId,
-  categoryClickAction,
   setPage,
 }) => {
-  console.log(categories);
-
   return (
     <div className="wrapper">
       <button
-        onClick={() => setPage(activeCategoryId - 1)}
+        onClick={() =>
+          setPage(activeCategoryId === 1 ? 13 : activeCategoryId - 1)
+        }
         className="wrapper_btn prev_btn"
       >
         PREV
@@ -43,7 +41,9 @@ const Paginator: React.FC<PaginatorProps> = ({
         })}
       </div>
       <button
-        onClick={() => setPage(activeCategoryId + 1)}
+        onClick={() =>
+          setPage(activeCategoryId === 13 ? 1 : activeCategoryId + 1)
+        }
         className="wrapper_btn next_btn"
       >
         NEXT

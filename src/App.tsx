@@ -8,11 +8,10 @@ import "./App.css";
 
 const App: React.FC = () => {
   const paginatorStore: PaginatorStore = useContext(PaginationStore);
-  const { changeActiveCategory, params, setPage } = paginatorStore;
+  const { params, setPage } = paginatorStore;
 
   return (
     <Paginator
-      categoryClickAction={changeActiveCategory}
       activeCategoryId={params.activeCategoryId}
       categories={params.category}
       setPage={setPage}
