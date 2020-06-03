@@ -8,8 +8,7 @@
 .wrapper_categories {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
-  width: 100%;
+  width: 84%;
   overflow: hidden;
 }
 

@@ -6,22 +6,23 @@ export interface PaginatorProps {
   categories: Category[];
   activeCategoryId: number;
   categoryClickAction: (id: number) => void;
-  nextAction: () => void;
-  prevAction: () => void;
+  setPage: (id: number) => void;
 }
 
 const Paginator: React.FC<PaginatorProps> = ({
   categories,
   activeCategoryId,
   categoryClickAction,
-  nextAction,
-  prevAction,
+  setPage,
 }) => {
-  console.log(activeCategoryId);
+  console.log(categories);
 
   return (
     <div className="wrapper">
-      <button onClick={prevAction} className="wrapper_btn prev_btn">
+      <button
+        onClick={() => setPage(activeCategoryId - 1)}
+        className="wrapper_btn prev_btn"
+      >
         PREV
       </button>
       <div className="wrapper_categories">
@@ -34,14 +35,17 @@ const Paginator: React.FC<PaginatorProps> = ({
                   : "category_item"
               }
               key={it.id}
-              onClick={() => categoryClickAction(it.id)}
+              onClick={() => setPage(it.id)}
             >
               {it.name}
             </span>
           );
         })}
       </div>
-      <button onClick={nextAction} className="wrapper_btn next_btn">
+      <button
+        onClick={() => setPage(activeCategoryId + 1)}
+        className="wrapper_btn next_btn"
+      >
         NEXT
       </button>
     </div>

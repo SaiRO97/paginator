@@ -2,10 +2,10 @@ export interface PaginatorStore {
   params: {
     category: Category[];
     activeCategoryId: number;
+    //maxCategoryItems: 10;
   };
-  nextAction: () => void;
-  prevAction: () => void;
   changeActiveCategory: (id: number) => void;
+  setPage: (id: number) => void;
 }
 
 export interface Category {
