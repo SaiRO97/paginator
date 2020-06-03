@@ -1,12 +1,24 @@
 import { createContext } from "react";
 import { action, observable } from "mobx";
 import { category } from "../consts/category";
+import { WINDOW_SIZES } from "../consts/windowSize";
 
 class PaginationStore {
   @observable public params = {
     category,
     activeCategoryId: 1,
-    windowWidth: 0,
+    windowWidth: WINDOW_SIZES.X,
+  };
+
+  limitChanger = () => {
+    if (
+      this.params.windowWidth <= WINDOW_SIZES.X &&
+      this.params.windowWidth >= WINDOW_SIZES.XL
+    ) {
+      return 4;
+    }
+
+    return 5;
   };
 
   @action setPage = (categoryId: number) => {
@@ -14,8 +26,7 @@ class PaginationStore {
     this.params.activeCategoryId = categoryId;
     const currentPage: number = this.params.activeCategoryId;
     const totalCategories: number = category.length;
-
-    const categoryLimit: number = 8;
+    const categoryLimit: number = this.limitChanger();
 
     if (currentPage <= categoryLimit) {
       startPage = 0;

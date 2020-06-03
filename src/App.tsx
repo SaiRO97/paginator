@@ -16,6 +16,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    setSizeToMobxStore();
     window.addEventListener("resize", setSizeToMobxStore);
     return () => {
       window.removeEventListener("resize", setSizeToMobxStore);
@@ -23,11 +24,13 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Paginator
-      activeCategoryId={params.activeCategoryId}
-      categories={params.category}
-      setPage={setPage}
-    />
+    <div className="container">
+      <Paginator
+        activeCategoryId={params.activeCategoryId}
+        categories={params.category}
+        setPage={setPage}
+      />
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Category } from "../interfaces/store";
+import { category } from "../consts/category";
 import "./paginator.css";
 
 export interface PaginatorProps {
@@ -17,7 +18,9 @@ const Paginator: React.FC<PaginatorProps> = ({
     <div className="wrapper">
       <button
         onClick={() =>
-          setPage(activeCategoryId === 1 ? 13 : activeCategoryId - 1)
+          setPage(
+            activeCategoryId === 1 ? category.length : activeCategoryId - 1
+          )
         }
         className="wrapper_btn prev_btn"
       >
@@ -42,7 +45,9 @@ const Paginator: React.FC<PaginatorProps> = ({
       </div>
       <button
         onClick={() =>
-          setPage(activeCategoryId === 13 ? 1 : activeCategoryId + 1)
+          setPage(
+            activeCategoryId === category.length ? 1 : activeCategoryId + 1
+          )
         }
         className="wrapper_btn next_btn"
       >
