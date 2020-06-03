@@ -5,8 +5,8 @@ import { category } from "../consts/category";
 class PaginationStore {
   @observable public params = {
     category,
-    categoryMutable: null,
     activeCategoryId: 1,
+    windowWidth: 0,
   };
 
   @action setPage = (categoryId: number) => {
@@ -15,7 +15,7 @@ class PaginationStore {
     const currentPage: number = this.params.activeCategoryId;
     const totalCategories: number = category.length;
 
-    const categoryLimit: number = 5;
+    const categoryLimit: number = 8;
 
     if (currentPage <= categoryLimit) {
       startPage = 0;
@@ -30,6 +30,10 @@ class PaginationStore {
 
     const newCategory = category.slice(startPage, endPage + 1);
     this.params.category = newCategory;
+  };
+
+  @action setWindowSize = (windowSize: number) => {
+    this.params.windowWidth = windowSize;
   };
 }
 

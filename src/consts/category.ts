@@ -3,54 +3,54 @@ import { Category } from "../interfaces/store";
 export const category: Category[] = [
   {
     id: 1,
-    name: "First",
+    name: "Sport",
   },
   {
     id: 2,
-    name: "second",
+    name: "Politics",
   },
   {
     id: 3,
-    name: "third",
+    name: "Broadcast",
   },
   {
     id: 4,
-    name: "bla",
+    name: "Software",
   },
   {
     id: 5,
-    name: "lorem",
+    name: "Celebrity",
   },
   {
     id: 6,
-    name: "sdf",
+    name: "News",
   },
   {
     id: 7,
-    name: "thigfdgfdrd",
+    name: "Music",
   },
   {
     id: 8,
-    name: "sdfdsf",
+    name: "Themes",
   },
   {
     id: 9,
-    name: "xcvxc",
+    name: "Unique",
   },
   {
     id: 10,
-    name: "unique",
+    name: "Gallery",
   },
   {
     id: 11,
-    name: "category",
+    name: "Cats",
   },
   {
     id: 12,
-    name: "sport",
+    name: "Cars",
   },
   {
     id: 13,
-    name: "music",
+    name: "Others",
   },
 ];
