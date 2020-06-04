@@ -1,6 +1,6 @@
 export interface PaginatorStore {
   params: {
-    category: Category[];
+    category: ICategory[];
     activeCategoryId: number;
     windowWidth: number;
   };
@@ -8,7 +8,14 @@ export interface PaginatorStore {
   setPage: (id: number) => void;
 }
 
-export interface Category {
+export interface IParams {
+  category: ICategory[];
+  activeCategoryId: number;
+  windowWidth: number;
+  limit: number;
+}
+
+export interface ICategory {
   id: number;
   name: string;
 }

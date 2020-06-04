@@ -1,6 +1,6 @@
-import { Category } from "../interfaces/store";
+import { ICategory } from "../interfaces/store";
 
-export const category: Category[] = [
+export const category: ICategory[] = [
   {
     id: 1,
     name: "Sport",

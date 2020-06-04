@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Category } from "../interfaces/store";
+import { ICategory } from "../interfaces/store";
 import { category } from "../consts/category";
 import "./paginator.css";
 
 export interface PaginatorProps {
-  categories: Category[];
+  categories: ICategory[];
   activeCategoryId: number;
   setPage: (id: number) => void;
 }

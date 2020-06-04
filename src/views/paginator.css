@@ -7,21 +7,20 @@
 
 .wrapper_categories {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   padding: 0 15px;
+  justify-content: space-between;
   overflow: hidden;
   box-sizing: border-box;
-  word-wrap: break-word;
 }
 
 .category_item {
-  padding: 6px 12px;
   border: 1px solid gray;
   border-radius: 6px;
+  box-sizing: border-box;
   cursor: pointer;
-  width: 100px;
-  margin: 0 5px;
+  width: 18%;
   text-align: center;
   color: #fff;
   animation: 0.7s fadeIn ease-in;
@@ -53,4 +52,10 @@
   background: gray;
   color: #fff;
   transition: 0.2s all linear;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 64%;
+  }
 }
