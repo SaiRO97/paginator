@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Category } from "../interfaces/store";
 import { category } from "../consts/category";
 import "./paginator.css";
@@ -14,6 +14,10 @@ const Paginator: React.FC<PaginatorProps> = ({
   activeCategoryId,
   setPage,
 }) => {
+  useEffect(() => {
+    setPage(1);
+  }, []);
+
   return (
     <div className="wrapper">
       <button

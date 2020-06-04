@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import { observer } from "mobx-react-lite";
 import PaginationStore from "./stores/index";
 import { PaginatorStore } from "./interfaces/store";
@@ -10,10 +10,9 @@ const App: React.FC = () => {
   const paginatorStore: PaginatorStore = useContext(PaginationStore);
   const { params, setPage, setWindowSize } = paginatorStore;
 
-  const setSizeToMobxStore = () => {
-    console.log(window.innerWidth);
+  const setSizeToMobxStore = useCallback(() => {
     setWindowSize(window.innerWidth);
-  };
+  }, [window.innerWidth]);
 
   useEffect(() => {
     setSizeToMobxStore();
