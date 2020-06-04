@@ -9,6 +9,7 @@ class PaginationStore {
     category,
     activeCategoryId: 1,
     windowWidth: WINDOW_SIZES.X,
+    limit: 5,
   };
 
   @action setPage = (categoryId: number) => {
@@ -16,15 +17,15 @@ class PaginationStore {
     const currentPage: number = this.params.activeCategoryId;
 
     let startPage: number = 0;
-    let endPage: number = 5;
+    let endPage: number = this.params.limit;
 
-    if (currentPage > 5) {
-      startPage = currentPage - 5;
+    if (currentPage > this.params.limit) {
+      startPage = currentPage - this.params.limit;
       endPage = currentPage + 1;
     }
 
     if (currentPage === category.length) {
-      startPage = currentPage - 5;
+      startPage = currentPage - this.params.limit;
       endPage = currentPage;
     }
 
@@ -35,8 +36,17 @@ class PaginationStore {
   @action setWindowSize = (windowSize: number) => {
     const lastElement = this.params.category.slice(-1)[0];
 
-    if (windowSize <= 1200 && lastElement.id === this.params.activeCategoryId) {
-      console.log("object");
+    if (windowSize <= 1200) {
+      this.params.limit = 4;
+
+      if (lastElement.id === this.params.activeCategoryId) {
+        this.params.category.shift();
+      }
+
+      this.setPage(this.params.activeCategoryId);
+    } else {
+      this.params.limit = 5;
+      this.setPage(this.params.activeCategoryId);
     }
 
     this.params.windowWidth = windowSize;
