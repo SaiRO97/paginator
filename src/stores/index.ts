@@ -47,8 +47,6 @@ class PaginationStore {
   };
 
   @action setWindowSize = (windowSize: number) => {
-    console.log(windowSize);
-    console.log(WINDOW_SIZES.TB);
     if (windowSize <= WINDOW_SIZES.X && windowSize > WINDOW_SIZES.TB) {
       this.updateDataWithAction(() => {
         this.removedFirstElemIndicateLimit(4);
