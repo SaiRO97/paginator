@@ -66,3 +66,27 @@
     width: 64%;
   }
 }
+
+@media (max-width: 769px) {
+  .wrapper {
+    width: 84%;
+  }
+  .category_item {
+    width: 32%;
+  }
+  .wrapper_categories {
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .category_item {
+    width: 48%;
+  }
+}

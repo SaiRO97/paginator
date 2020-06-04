@@ -25,7 +25,6 @@ class PaginationStore {
     }
 
     if (currentPage === category.length) {
-      console.log("test");
       startPage = currentPage - this.params.limit;
       endPage = currentPage;
     }
@@ -34,15 +33,33 @@ class PaginationStore {
     this.params.category = newCategory;
   };
 
-  @action setWindowSize = (windowSize: number) => {
-    const lastElement: ICategory = this.params.category.slice(-1)[0];
+  @action removedFirstElemIndicateLimit = (limit: number) => {
+    this.params.limit = limit;
+    const lastElement = !!this.params.category.length
+      ? this.params.category.slice(-1)[0]
+      : {
+          id: 4,
+        };
 
-    if (windowSize <= WINDOW_SIZES.X) {
+    if (lastElement.id === this.params.activeCategoryId) {
+      this.params.category.shift();
+    }
+  };
+
+  @action setWindowSize = (windowSize: number) => {
+    console.log(windowSize);
+    console.log(WINDOW_SIZES.TB);
+    if (windowSize <= WINDOW_SIZES.X && windowSize > WINDOW_SIZES.TB) {
       this.updateDataWithAction(() => {
-        this.params.limit = 4;
-        if (lastElement.id === this.params.activeCategoryId) {
-          this.params.category.shift();
-        }
+        this.removedFirstElemIndicateLimit(4);
+      });
+    } else if (windowSize <= WINDOW_SIZES.TB && windowSize >= WINDOW_SIZES.SM) {
+      this.updateDataWithAction(() => {
+        this.removedFirstElemIndicateLimit(3);
+      });
+    } else if (windowSize <= WINDOW_SIZES.SM) {
+      this.updateDataWithAction(() => {
+        this.removedFirstElemIndicateLimit(2);
       });
     } else {
       this.updateDataWithAction(() => {
